@@ -8,10 +8,14 @@ let newObject = {};
 
 const data = fs.readFileSync('./textFiles/2_employeedepartment.txt', 'utf-8');
 
+const data2 = data.split('\n').map(row => row.trim());
+const newData = data2.map(row => row.split(','));
+
+console.log(newData);
 
 app.get('/', (req, res) => {
 
-    res.send(data);
+    res.send(newData);
   });
 
 
