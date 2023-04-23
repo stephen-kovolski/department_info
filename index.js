@@ -3,18 +3,21 @@ const express = require('express')
 const app = express();
 const fs = require('fs');
 const PORT = process.env.PORT || 3000;
-let newObject = {};
 
 
 const data = fs.readFileSync('./textFiles/2_employeedepartment.txt', 'utf-8');
 
 const data2 = data.split('\n').map(row => row.trim());
-const newData = data2.map(row => row.split(','));
+const newData = data2.map(row => {
+  const [employeeId, departmentId, hireDate, fireDate] = row.split(',');
+  return {employeeId, departmentId, hireDate, fireDate}
 
-console.log(newData);
+// const dataObjects = dataRows.map(row => {
+//   const [employeeId, departmentId] = row.split(',');
+//   return { employeeId, departmentId };
+});
 
 app.get('/', (req, res) => {
-
     res.send(newData);
   });
 
