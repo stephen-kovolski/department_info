@@ -7,6 +7,10 @@ const path = require('path')
 
 app.use('/htmlFile', express.static(path.join(__dirname, './public')))
 
+
+// const please_work = document.addEventListener("DOMContentLoaded", function(){
+//   document.getElementById('mainDiv').appendChild(DepartmentData)
+// })
 //const newDiv = document.createElement("div");
 //mainDiv.innerHTML += departmentId, deptName;
 
